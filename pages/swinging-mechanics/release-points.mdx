@@ -1,0 +1,47 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Release Points
+
+Once the player's time on the swing line is complete, it's time for one of the most satisfying elements of traversal in Marvel's Spider-Man: flinging yourself off the line across the world with reckless abandon. This section will dive into how release points are handled and how the transition into jumps and other moves is managed.
+
+## Releasing vs. Jumping
+
+When letting go of the swing line, there are two sets of data: releasing and jumping. Jumping provides more acrobatic motion, height, and speed, while simple releasing has simpler animations and allows the player to take a follow-up action more quickly. Players can choose between the two based on their desired action and the situation at hand.
+
+One of the key gameplay features of swinging when it comes to releases is the inherent analog nature of how release points translate into exit direction. Players can choose to release low to gain more speed or hold on a little longer to gain more height.
+
+## Initial Approach: Metric-Driven
+
+The first approach to swing releases was heavily metric-driven, which made sense given Insomniac's platforming history. The team defined desired jump heights and times to peak for various release points and speeds along the swing arc, then blended those values to get the appropriate values for any release point.
+
+The goal was to make jumps feel predictable and consistent, allowing players to plan ahead and set up their next move. This model was in place for about two years and received mostly positive feedback. However, there was an undercurrent of players feeling that jumps were too heavy and that their momentum on the swing line wasn't translating well to their jumps.
+
+<Callout type="info">
+The metric-driven approach was changing gravity significantly for any given release point based on player speed to hit the target jump height. This violated the player's physics feel, making them feel penalized rather than rewarded with the expected amount of fling.
+</Callout>
+
+## Moving to a Free Release Model
+
+To address the issues with the metric-driven approach, the team moved to a more free release model. They let go of the controlling metrics in favor of a fixed gravity for each release point, with the only design factors being the player's velocity on the swing line.
+
+This change created a much more natural translation of swing speed to jump size that better matched player expectations. The fun factor immediately increased as players were now able to fling themselves across the world with abandon, leading to a greatly increased sense of speed and joy, as well as a more cohesive swinging experience overall.
+
+<Steps>
+
+### Step 1
+Identify the limitations of the current metric-driven approach, such as the feeling of heavy jumps and the lack of momentum translation.
+
+### Step 2
+Implement a free release model with fixed gravity for each release point, relying on the player's velocity on the swing line as the primary factor.
+
+### Step 3
+Test and validate the new model, ensuring that it creates a more natural and satisfying experience for players.
+
+### Step 4
+Fine-tune and iterate on the free release model based on player feedback and internal testing to achieve the desired feel and flow.
+
+</Steps>
+
+By moving away from the metric-driven approach and embracing a more physics-based, free release model, the traversal system in Marvel's Spider-Man was able to deliver a much more satisfying and empowering experience for players. The transition from swinging to jumping and other moves became more fluid and natural, enhancing the overall sense of speed, momentum, and joy that is central to the game's traversal mechanics.
+
+For more information on the swinging mechanics, check out the [Pendulum Physics](/swinging-mechanics/pendulum-physics), [Swing Arc Management](/swinging-mechanics/swing-arc-management), and [Speed and Momentum](/swinging-mechanics/speed-and-momentum) sections.

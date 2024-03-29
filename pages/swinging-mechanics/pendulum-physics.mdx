@@ -1,0 +1,64 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Pendulum Physics
+
+The swinging mechanics in Marvel's Spider-Man are based on the physics of a pendulum. Understanding the basic forces and equations governing the swinging motion is crucial for creating a believable and satisfying traversal system.
+
+## Forces at Play
+
+Two primary forces are involved in the pendulum motion:
+
+1. **Gravity**: The force that pulls the pendulum bob (Spider-Man) downward, causing it to swing.
+2. **Tension**: The force exerted by the web line, which keeps Spider-Man attached to the pivot point and pulls him in a circular motion.
+
+<Callout type="info">
+Gravity can be broken down into two component vectors: one parallel to the web line and one perpendicular to it. The perpendicular component is responsible for the restoring force that makes the pendulum oscillate back and forth.
+</Callout>
+
+## Equations of Motion
+
+The equations governing the motion of a pendulum are derived from Newton's second law of motion: $F = ma$. In the case of Spider-Man's swinging, we can simplify the calculations by assuming a constant mass (set to 1) and tuning the gravity as needed.
+
+The force of tension can be calculated using the following equation:
+
+$T = \frac{mv^2}{L} + mg\cos\theta$
+
+Where:
+- $T$ is the tension force
+- $m$ is the mass of Spider-Man (set to 1)
+- $v$ is the velocity
+- $L$ is the length of the web line
+- $g$ is the acceleration due to gravity
+- $\theta$ is the angle between the web line and the vertical axis
+
+By applying the tension force and the perpendicular component of gravity to Spider-Man's velocity, we can simulate the swinging motion. To improve accuracy, the calculations are performed four times per frame, effectively running the simulation at 120Hz.
+
+## Implementing Pendulum Physics
+
+To implement the pendulum physics in your game:
+
+<Steps>
+
+### Step 1
+
+Calculate the tension force using the equation above, based on Spider-Man's current position, velocity, and web line length.
+
+### Step 2
+
+Break down the gravity force into its parallel and perpendicular components relative to the web line.
+
+### Step 3
+
+Apply the tension force and the perpendicular component of gravity to Spider-Man's velocity.
+
+### Step 4
+
+Update Spider-Man's position based on the new velocity.
+
+### Step 5
+
+Repeat steps 1-4 four times per frame to improve accuracy.
+
+</Steps>
+
+By understanding and implementing the basic principles of pendulum physics, you can create a foundation for a believable and engaging swinging mechanic in your game. In the next section, we'll explore how to manage the [swing arc](/swinging-mechanics/swing-arc-management) to ensure fluid and consistent swinging motion.

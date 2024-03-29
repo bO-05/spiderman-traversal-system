@@ -1,0 +1,53 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Camera Enhancements
+
+The traversal camera in Marvel's Spider-Man plays a crucial role in conveying the sense of speed, motion, and fluidity that is essential to the swinging experience. Throughout the development process, the team at Insomniac Games iteratively refined the camera system to better align with player expectations and enhance the overall traversal gameplay.
+
+## Unified Camera Model
+
+In the early stages of development, each traversal move was treated as a unique, cinematic moment with its own camera framing and field of view. However, this approach led to inconsistencies and a noisy relationship between the world, character, and view when rapidly sequencing moves.
+
+To address this issue, the team moved towards a more unified camera model:
+
+<Steps>
+
+### Step 1
+Implement a speed-driven field of view and follow distance that remains consistent across all traversal moves.
+
+### Step 2
+Smooth out camera offset adjustments to make transitions between moves feel less aggressive and more natural.
+
+</Steps>
+
+This unified approach resulted in a more predictable camera behavior, allowing players to maintain a consistent perception of speed when moving from one move to another. The flow between moves became smoother, without sudden state changes that could disorient the player.
+
+## Conveying Speed and Motion
+
+To further enhance the sense of speed and motion, the team employed several techniques:
+
+- **Dynamic Field of View**: The game's field of view is constantly updated while traversing, with wider angles used to elongate objects and bring peripheral elements into view, emphasizing the sensation of moving through the environment at high speeds.
+
+- **Camera Follow Distance**: Adjusting the camera's follow distance helps deal with sudden speed changes, creating a spring-like action where the camera falls back before blending closer to the character, as if it's trying to catch up.
+
+- **Explosive Moves**: Certain high-impact moves, such as launching off a point or web-zipping, trigger a temporary increase in the camera's follow distance, selling the idea that the character is boosting away suddenly, leaving the camera behind momentarily.
+
+<Callout>
+These camera techniques work in tandem with other visual cues, such as motion blur and screen effects, to reinforce the perception of speed and momentum throughout the traversal experience.
+</Callout>
+
+## Accentuating the Swing Arc
+
+To help players better understand their position within the swing arc and make the swinging feel more dynamic, the camera system was designed to accentuate the pendulum motion:
+
+- **Pitch Matching**: The camera's pitch roughly matches the swing arc's pitch, allowing players to feel the motion through the camera. The pitch is kept more flattened on the downswing to maintain visibility, while it is exaggerated on the upswing to communicate the rise more effectively.
+
+- **Character Position in Screen Space**: The character's vertical position in screen space is adjusted throughout the swing, moving down and then back up. This creates a physical tracking response from the player, reinforcing the in-game motion as they look down and up with the character.
+
+By emphasizing the swing arc through camera motion, players gain a better sense of their position within the swing and can more easily time their releases for optimal momentum.
+
+## Conclusion
+
+The iterative refinement of the traversal camera in Marvel's Spider-Man demonstrates the importance of aligning camera behavior with player expectations and game feel. By unifying the camera model, conveying speed and motion through various techniques, and accentuating the swing arc, Insomniac Games created a more immersive and satisfying swinging experience that captures the essence of Spider-Man's iconic movement.
+
+For more information on other aspects of the traversal system, check out the sections on [Core Principles](/core-principles), [Swinging Mechanics](/swinging-mechanics), and [Iteration and Refinement](/iteration-and-refinement).

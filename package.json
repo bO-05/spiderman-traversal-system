@@ -1,0 +1,32 @@
+{
+  "dependencies": {
+    "@types/node": "^20.11.30",
+    "next": "^14.1.4",
+    "nextra": "^2.13.4",
+    "nextra-theme-docs": "^2.13.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.4.3"
+  },
+  "name": "Concrete-with-lumentis",
+  "description": "In this 2019 GDC session, Doug Sheahan from Insomniac Games provides an in-depth look at the creation of the traversal system for Marvel's Spider-Man. He covers the core principles, challenges, and iterative process behind developing a fluid and accessible swinging mechanic that captures the essence of the superhero's iconic movement.",
+  "version": "0.0.1",
+  "scripts": {
+    "devstart": "next dev -p 5656 & node start.js",
+    "dev": "next dev -p 5656",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [
+    "Game development",
+    "Traversal mechanics",
+    "Animation blending",
+    "Physics-based swinging",
+    "Camera control",
+    "Player expectations",
+    "Usability testing",
+    "Iterative design",
+    "Collision detection",
+    "Performance optimization"
+  ]
+}

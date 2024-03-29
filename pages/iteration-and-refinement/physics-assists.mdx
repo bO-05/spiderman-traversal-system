@@ -1,0 +1,47 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Physics Assists
+
+During the development of Marvel's Spider-Man, the team at Insomniac Games implemented various physics assists to help players manage the physics-based swinging mechanic. These assists were designed to smooth out the experience and make the game more accessible to a broader audience, while still maintaining the sense of skill and mastery that comes with a physics-based system.
+
+## Pivot Tweaking
+
+One of the major usability problems encountered during playtesting was that players felt it was nearly impossible to swing in a straight line. This was due to the tension forces in the pendulum model, which caused the character to settle underneath the attach point, resulting in a zigzagging motion.
+
+To address this issue, the development team implemented a technique called **pivot tweaking**. This involved moving the simulation pivot away from the wall and into a position that would help the player swing straighter, while leaving the visible attach point on the wall.
+
+<Steps>
+### Step 1
+
+Calculate the ideal pivot position based on the player's input direction and the desired swing path.
+
+### Step 2 
+
+Blend the pivot position back to the visible attach point over time or when the player is turning, ensuring that turns pivot on the correct and visible place.
+</Steps>
+
+This technique greatly improved the player's ability to swing in a straight line and maintain a consistent center line, aligning their input with the resulting motion.
+
+## Swing Line Shortening
+
+Another usability problem arose when players were swinging close to the top of buildings. The minimum height requirement for attach points prevented players from getting swing lines in these situations, leading to frustration and confusion.
+
+To solve this, the team secretly allowed the simulation attach point to rise above the building edge, effectively raising the valid attach point ceiling. This change was barely noticeable to players, as vertical shifts in the pivot point are hard to perceive while swinging underneath it.
+
+## Collision-Based Adjustments
+
+Collision detection played a crucial role in several physics assists:
+
+- **Nudging**: When players were at risk of colliding with building edges, the game would perform collision tests and slightly nudge the character to the left or right to prevent clipping.
+  
+- **Steering Dampening**: By sending collision checks forward and sideways, the game could detect gaps in upcoming walls and dampen steering values to help players avoid overshooting and slamming into walls when turning.
+
+- **Swing Line Shortening**: To prevent players from colliding with the top of buildings they were attempting to clear, the game dynamically shortened the swing line based on collision tests, ensuring a smooth clearance.
+
+These collision-based adjustments gave players the empowering feeling of narrowly avoiding obstacles, without them realizing that the game was subtly assisting them.
+
+## Ground Avoidance
+
+To keep players from face-planting into the ground or becoming a "bug on a windshield," the development team implemented a ground avoidance system. Using collision detection, the game determines the ground height and scales the player's vertical motion during the downswing to maintain a minimum clearance. This allows for a thrilling, low-altitude swinging experience without the frustration of constant collisions.
+
+By implementing these physics assists, Insomniac Games struck a balance between the satisfaction of mastering a physics-based swinging system and the accessibility needed to appeal to a wide audience. The assists were designed to be as invisible as possible, only becoming apparent when players deliberately tested the boundaries of the system. This approach allowed players to feel in control while the game gently guided them towards a more enjoyable and cinematic swinging experience.

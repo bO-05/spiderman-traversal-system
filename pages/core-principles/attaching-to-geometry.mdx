@@ -1,0 +1,49 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Attaching to In-World Geometry
+
+One of the core principles behind the traversal system in Marvel's Spider-Man is ensuring that the player's web lines always attach to real-world geometry. This is crucial for maintaining immersion and believability, as players expect Spider-Man's webs to connect to objects in the environment.
+
+## Why is it important?
+
+Attaching web lines to in-world geometry is essential for several reasons:
+
+- It grounds the swinging mechanic in reality, making it feel more authentic and believable.
+- It prevents immersion-breaking moments where the player's web lines appear to attach to nothing.
+- It allows for more dynamic and varied swinging experiences, as the player must navigate around and interact with the environment.
+
+<Callout type="info">
+Fun fact: The development team at Insomniac Games was particularly concerned about angry fans telling them they were "ruining their childhood" if the web lines didn't attach to real objects!
+</Callout>
+
+## Challenges and Solutions
+
+Implementing a system that ensures web lines always attach to in-world geometry presents several challenges:
+
+1. **Complex environments**: Urban environments like New York City are filled with diverse objects and structures, making it difficult to identify and mark up all potential attachment points.
+
+2. **Performance**: Constantly searching for and validating attachment points in real-time can be computationally expensive, potentially impacting game performance.
+
+3. **Consistency**: Ensuring that attachment points are consistently available and behave predictably across different areas of the game world.
+
+To overcome these challenges, the development team employed a combination of techniques:
+
+<Steps>
+
+### Markup-based approach
+
+Using a markup-based approach, the team wrapped buildings and other objects in box volumes that approximate their shapes. This allowed for fast and efficient identification of potential attachment points.
+
+### Procedural generation
+
+The team leveraged Houdini, a procedural generation tool, to analyze the game's environment and automatically place markup volumes around buildings and other objects. This greatly reduced the manual effort required to populate the world with attachment points.
+
+### Prefab system
+
+For objects outside of Houdini's scope, the team utilized the game engine's prefab system. This allowed them to bundle markup volumes with specific objects, ensuring that attachment points were always present when those objects were placed in the world.
+
+</Steps>
+
+By employing these techniques, the development team was able to create a robust and efficient system for attaching web lines to in-world geometry, enhancing the overall player experience and maintaining the game's immersive qualities.
+
+For more information on how the game selects the optimal attachment point for each web line, see the [Swing Point Selection](/swing-point-selection) section.

@@ -1,0 +1,61 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Animation Improvements
+
+During the development of Marvel's Spider-Man, the team at Insomniac Games continuously refined the animation system to achieve better blending and variety in Spider-Man's traversal animations. This iterative process was crucial in creating a fluid and dynamic traversal experience that closely matched the character's iconic movements from the comics and movies.
+
+## Swing Animation Breakdown
+
+<Steps>
+### Step 1: Initial Approach
+
+The initial approach to animating the swing involved using a single animation that covered the entire swing arc, from the drop horizon to the apex horizon. The animation's time was driven by the player's position in the swing arc for each frame.
+
+### Step 2: Swing Intro Animations
+
+To achieve clean entry animations, separate swing intro animations were created for different points along the swing arc. These animations were designed to end pose-matched with the full swing animation, allowing for a seamless blend into the swing. When a player began a swing, the system would calculate their position in the swing arc and blend between the appropriate intro animations to create a specific entry for that angle.
+
+### Step 3: Body Alignment Partials
+
+To ensure that Spider-Man's body aligned correctly with the web line without requiring duplicate swing arc animations, the team employed partial animations to adjust the final body angle. These partials were used on both the body for side-to-side movement and the arms for final adjustments when necessary.
+</Steps>
+
+<Callout type="info">
+The use of partial animations allowed for greater flexibility in aligning Spider-Man's body with the web line without the need for creating numerous duplicate animations.
+</Callout>
+
+## Limitations and Improvements
+
+While the initial animation system worked well in many aspects, such as providing smooth entry and timing into the swing animation and effectively aligning the character to the swing line, it presented some limitations that hindered the animators' creativity:
+
+- Limited variability in the swing animations
+- Perceptible animation time scaling
+- Lack of impact in the kick-through animations
+
+To address these limitations, the team broke the swing arc into separate pieces that could be animated independently:
+
+```mermaid
+graph LR
+    A[Downswing] --> B[Trough]
+    B --> C[Upswing]
+```
+
+This approach allowed for:
+
+- Overlapping the kick animation at the inflection point
+- Triggering the kick animation at the right time to play it at full speed
+- Plugging in a variety of animations into the kick portion without re-animating the entire swing
+
+By breaking the swing animation into pieces, animators gained the freedom to create custom kicks, spins, and upswings that could be mixed and matched to generate a wide range of unique and dynamic swinging animations. This added depth and variety to Spider-Man's traversal, making it feel more authentic to the character.
+
+## Pose Matching and Swing Intros
+
+Another challenge faced by the animation team was ensuring smooth transitions from Spider-Man's various moves into the swing intro animations. Due to the character's diverse set of poses, the team needed to find a way to seamlessly blend from these poses into the sling animations.
+
+To solve this problem, a data-driven setup was implemented, allowing animators to specify the next animation based on the current time in the active animation. They would mark up sections of a jump animation with data pointing to custom slinging animations, enabling clean transitions out of complex acrobatic poses and into custom slings.
+
+<Callout type="success">
+The data-driven approach to pose matching and swing intros empowered animators to create seamless transitions between Spider-Man's various moves and the swinging animations, resulting in a more fluid and dynamic traversal experience.
+</Callout>
+
+By continuously iterating on the animation system and finding creative solutions to the challenges encountered, the team at Insomniac Games was able to deliver a traversal experience that truly captured the essence of Spider-Man's iconic movements. The [refinements made to the swinging mechanics](/swinging-mechanics) and the [enhancements to the camera system](/iteration-and-refinement/camera-enhancements) worked in harmony with these animation improvements to create a thrilling and immersive traversal system that players could enjoy.

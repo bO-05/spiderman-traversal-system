@@ -1,0 +1,53 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Dynamic Camera
+
+One of the core principles behind the traversal system in Marvel's Spider-Man is the use of a dynamic camera to convey a sense of speed, fluidity, and cinematic flair. The camera plays a crucial role in translating the high-flying acrobatics and velocity of Spider-Man's swinging into a visceral experience for the player.
+
+## Goals
+
+The primary goals for the traversal camera were:
+
+1. **Minimize player input**: Reduce the need for players to manually control the camera, allowing them to focus on the traversal mechanics and gameplay.
+2. **Accentuate pendulum motion**: Emphasize the pendulum-like motion and forces experienced by Spider-Man while swinging to enhance immersion.
+3. **Communicate speed**: Utilize various visual cues to convey a sense of speed and momentum to the player.
+
+## Implementation
+
+<Steps>
+
+### Step 1: Camera Follow Model
+
+The initial approach was based on a follow camera model, where the camera looks in the same direction as Spider-Man's velocity. However, this led to issues with sudden changes in velocity causing large, disorienting view direction changes.
+
+To address this, the camera model was adjusted to have the player "drag" the camera around. This was achieved by:
+1. Predicting the player's position based on their current speed
+2. Using the predicted position to calculate how it would affect the camera boom and rotation
+
+This approach resulted in a smoother, less noisy camera motion that was more tolerant of velocity changes.
+
+### Step 2: Accentuating Pendulum Motion
+
+To emphasize the pendulum-like motion of swinging, the camera's pitch is manipulated to roughly match the swing arc's pitch. This allows players to feel the motion through the camera.
+
+- On the downswing, the pitch is kept more flattened, allowing players to focus on the horizon and their direction of travel.
+- On the upswing, the pitch is exaggerated to communicate the rise more effectively without getting too far into the upswing.
+
+Additionally, the character's position in screen space is moved down and then back up over the course of the swing. This creates a physical tracking response from the player, reinforcing the in-game motion as they look down and up with the character.
+
+### Step 3: Communicating Speed
+
+To convey a sense of speed, multiple visual cues are layered together:
+
+- **Field of View (FOV)**: Adjusting the FOV based on Spider-Man's speed. A wider FOV elongates objects in front of the player and brings more peripheral objects into view, enhancing the perception of speed.
+- **Camera Follow Distance**: Rapidly adjusting the camera's follow distance to deal with sudden speed changes, creating a "spring" effect where the camera falls back and then blends closer again.
+- **Motion Blur**: Applying motion blur effects to further emphasize the sense of speed and movement.
+
+</Steps>
+
+By combining these techniques, the dynamic camera system in Marvel's Spider-Man successfully immerses players in the traversal experience, making them feel like they are truly swinging through the city as the iconic superhero.
+
+For more information on other aspects of the traversal system, check out the following sections:
+- [Core Principles](/core-principles)
+- [Swing Point Selection](/swing-point-selection)
+- [Swinging Mechanics](/swinging-mechanics)

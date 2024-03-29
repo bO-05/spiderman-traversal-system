@@ -1,0 +1,41 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Markup-Based Approach
+
+After experimenting with raycasting for finding swing points, we transitioned to a markup-based approach. This method involved wrapping our buildings in box volumes that approximate their shape. By processing these volumes on a face-by-face basis, we could find nearby volumes and perform a final raycast to determine the true attach point on the geometry.
+
+## Advantages of Markup-Based Approach
+
+Moving to a markup-based system provided several advantages over the raycasting approach:
+
+<Steps>
+
+### Faster Point Collection
+
+By using a cache-friendly sphere database, point collection became significantly faster. This improvement helped with scalability, allowing us to have a large number of markup volumes in the world and process them quickly.
+
+### Infinite Resolution
+
+The shape information provided by the markup volumes effectively gave us infinite resolution for point placement on each face. This allowed us to easily find edges and corners without worrying about missing smaller objects.
+
+### Designer Control
+
+Using markup afforded designers more control over various gameplay aspects, such as custom swing parameters and where swinging was allowed or prohibited.
+
+</Steps>
+
+## Drawbacks and Solutions
+
+The main drawback of the markup-based approach was placement scalability. With a vast world filled with objects requiring markup, placing and maintaining these volumes by hand throughout production would have been an enormous task, especially as the environment constantly changed.
+
+To address this issue, we deployed two primary tools:
+
+1. **Houdini:** This software was used to generate geometry for our environment out of building blocks. We leveraged Houdini to analyze the geometry and procedurally place volumes that approximate our building shapes.
+
+2. **Prefab System:** For objects outside of Houdini's operation, we utilized our engine's prefab system. This system bundled markup with the objects we placed, ensuring that every instance would bring the markup with it, eliminating the need for manual placement.
+
+<Callout type="info">
+By using procedural generation tools like Houdini and a prefab system, we were able to efficiently populate the world with markup volumes, reducing manual effort and potential bugs.
+</Callout>
+
+With our markup now populating the world, we could focus on using it to find the best attach points for each swing. This process involved [scoring and selecting](/swing-point-selection/scoring-and-selection) the optimal point based on various criteria, which we'll discuss in the next section.

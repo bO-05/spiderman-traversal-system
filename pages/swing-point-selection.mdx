@@ -1,0 +1,23 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Swing Point Selection
+
+One of the most crucial aspects of creating a believable and enjoyable swinging mechanic in Marvel's Spider-Man is the selection of appropriate swing points. The game world is filled with various objects and structures that the player can potentially attach their web lines to, but not all of them are suitable for swinging. 
+
+The challenge lies in finding the optimal swing points that:
+- Are within reasonable distance from the player
+- Provide a satisfying swinging arc
+- Allow for fluid and continuous movement
+- Enable the player to navigate the environment effectively
+
+<Callout>
+The swing point selection system needs to be fast, reliable, and adaptable to different scenarios to ensure a seamless swinging experience.
+</Callout>
+
+Initially, the development team experimented with a [raycasting approach](/swing-point-selection/raycasting-approach) to find suitable swing points. However, this method had several limitations, such as inadequate resolution and inability to detect certain objects.
+
+To overcome these issues, they transitioned to a [markup-based approach](/swing-point-selection/markup-based-approach). This involved wrapping buildings and other swingable objects in simplified geometric shapes, such as boxes, which could be processed more efficiently to determine valid swing points.
+
+Once potential swing points are identified, the system employs a [scoring and selection algorithm](/swing-point-selection/scoring-and-selection) to choose the best point based on factors like player input, distance, and angle. This ensures that the selected swing point aligns with the player's intention and provides a satisfying swinging experience.
+
+Throughout the development process, the team continuously iterated and refined the swing point selection system based on playtesting feedback and performance optimization requirements. The end result is a robust and efficient system that enables players to swing through the virtual New York City with ease and exhilaration.

@@ -1,0 +1,47 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Swing Arc Management
+
+Ensuring fluid and consistent swinging arcs is crucial for creating an immersive and enjoyable traversal experience in Marvel's Spider-Man. In this section, we'll explore the techniques used to manage the swing arc and maintain a smooth, uninterrupted flow throughout the swinging motion.
+
+## Maintaining Taut Lines
+
+One of the key principles in managing the swing arc is to avoid slack lines. Slack lines can lead to unpredictable behavior and sudden changes in direction, breaking the player's immersion. To address this, we implemented the following rules:
+
+1. Keep the web line taut at all times, preventing the player from feeling like they're falling rather than swinging.
+2. Once a line is shortened, it generally stays that length to maintain consistency.
+3. Cautiously look for opportunities to restore lost line length without causing abrupt changes in the swinging motion.
+
+By adhering to these rules, we ensure that the player experiences a more predictable and enjoyable swinging experience.
+
+## Handling Initial Swing Setup
+
+Setting up the initial swing poses a challenge due to the discrepancy between the player's incoming velocity and the velocity tangent to the swing arc. To smoothly transition the player into the swing, we use the following approach:
+
+<Steps>
+### Step 1
+
+Blend the incoming velocity towards the tangent direction of the swing arc over several iterations. This helps maintain healthier line lengths and improves the expected behavior and angular velocity.
+
+### Step 2
+
+Allow the player to feel a more significant drop on the swing arc compared to the previous motion path. This enhances the sensation of swinging and adds to the overall experience.
+</Steps>
+
+By gradually blending the velocities and allowing for a noticeable drop, we create a smooth and satisfying transition into the swing.
+
+## Player Control and Turning
+
+Once the player is in the swing, it's important to provide them with the ability to control their motion and navigate through the environment. To achieve this, we implemented the following:
+
+- Apply a simple accelerated rotation on the total velocity based on player input.
+- Scale the turn speed based on the player's position in the swing arc, providing more control at the trough and less at the apexes.
+- Adjust the turn speed based on whether the player is turning towards or away from the attach point.
+
+These control mechanisms allow players to effectively steer their swinging motion and make precise turns while maintaining a sense of momentum and flow.
+
+<Callout type="info">
+Balancing player control and physics-based swinging is an ongoing process. Regularly playtesting and gathering feedback from players is essential to fine-tune the mechanics and ensure a satisfying experience.
+</Callout>
+
+By carefully managing the swing arc, maintaining taut lines, handling initial setup, and providing player control, we create a fluid and immersive swinging experience in Marvel's Spider-Man. In the next section, we'll delve into [Speed and Momentum](/swinging-mechanics/speed-and-momentum) and explore how we manage these aspects to further enhance the traversal system.

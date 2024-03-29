@@ -1,0 +1,40 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Speed and Momentum
+
+Managing speed and momentum is crucial for creating a satisfying and fluid swinging experience in Marvel's Spider-Man. The game employs various techniques to ensure that the player maintains a sense of speed while also providing opportunities to build and preserve momentum throughout the swing.
+
+## Gravity and Speed
+
+The two primary factors influencing the speed of any given swing are:
+1. The speed the hero brings into the swing
+2. The gravity applied during the swing, which accelerates the hero throughout the swing arc
+
+To maintain streaming consistency, the average speed over a 10-second window is capped at 30 meters per second. This prevents loading stalls and ensures that the game can load assets as the player moves through the world.
+
+The game translates the player's fall speed into a maximum speed for each swing, never slowing the player down. This feels natural to players, as they are essentially using gravity to generate speed. To enforce the terminal velocity, the game only caps the hero's horizontal speed, which can sometimes result in a slowdown in 3D space during the downswing. However, this effect is rarely noticeable due to various speed cues, such as:
+- Camera rotation
+- Environment motion
+- Motion blur
+- Screen effects
+
+## Upswing and Gravity
+
+During the upswing, gravity slows the player down. The game takes several factors into account to manage this:
+1. Players should feel that gravity is appropriately slowing them down, ensuring a physically correct and natural sensation.
+2. Line lengths are highly variable, creating inconsistent timing for release levels.
+3. The player's speed should not be reduced too much when they are near the trough, allowing them to maintain their hard-earned momentum.
+
+To address these factors, the game implements a variable gravity system for the upswing. At any given point, the gravity is determined by a combination of the player's current speed and their position in the swing arc. This approach:
+- Helps maintain consistent swing timing
+- Allows more swings to move through the full range of release points
+- Provides a more predictable experience for the player
+- Enables high releases even at lower speeds
+
+<Callout type="info">
+The variable gravity system ensures that players can maintain their momentum and achieve satisfying high-speed releases, regardless of the line length or their position in the swing arc.
+</Callout>
+
+By carefully managing speed and momentum throughout the swing, Marvel's Spider-Man delivers a thrilling and fluid traversal experience that captures the essence of the iconic superhero. The game's attention to detail in balancing physics, gameplay, and player expectations results in a system that feels both natural and exhilarating.
+
+For more information on the specific mechanics behind the swinging system, check out the [Pendulum Physics](/swinging-mechanics/pendulum-physics) and [Swing Arc Management](/swinging-mechanics/swing-arc-management) sections.
